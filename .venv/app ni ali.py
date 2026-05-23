@@ -2,10 +2,8 @@ from kivy.lang import Builder
 from kivymd.app import MDApp
 from kivymd.uix.screen import MDScreen
 
-
 KV = '''
 ScreenManager:
-
     MainMenuScreen:
     SavingsScreen:
     AddGoalScreen:
@@ -14,62 +12,95 @@ ScreenManager:
     SummaryScreen:
 
 
-# ---------------- MAIN MENU ----------------
+# =====================================================
+# MAIN MENU SCREEN
+# =====================================================
+
 <MainMenuScreen>:
     name: "main"
 
     MDBoxLayout:
         orientation: "vertical"
-        padding: dp(20)
-        spacing: dp(15)
+        padding: dp(25)
+        spacing: dp(20)
         md_bg_color: 0.03, 0.07, 0.18, 1
+
+        # ---------------- HEADER ----------------
 
         MDLabel:
             text: "Savings Tracker"
-            font_style: "H4"
+            font_style: "H3"
+            bold: True
+            halign: "left"
+            valign: "top"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1
+            size_hint_y: None
+            height: dp(80)
+
+        MDLabel:
+            text: "Manage your goals and finances"
+            font_style: "Subtitle1"
             halign: "left"
             theme_text_color: "Custom"
-            text_color: 1,1,1,1
+            text_color: 1, 1, 1, 0.7
             size_hint_y: None
-            height: dp(60)
+            height: dp(30)
+
+        Widget:
+
+        # ---------------- BUTTONS ----------------
 
         MDRaisedButton:
             text: "Savings"
-            size_hint_x: None
-            width: dp(250)
             pos_hint: {"center_x": 0.5}
+            size_hint: None, None
+            size: dp(260), dp(50)
             on_release: app.change_screen("savings")
 
         MDRaisedButton:
             text: "Add Goal"
-            size_hint_x: None
-            width: dp(250)
             pos_hint: {"center_x": 0.5}
+            size_hint: None, None
+            size: dp(260), dp(50)
             on_release: app.change_screen("add_goal")
 
         MDRaisedButton:
             text: "Add Transaction"
-            size_hint_x: None
-            width: dp(250)
             pos_hint: {"center_x": 0.5}
+            size_hint: None, None
+            size: dp(260), dp(50)
             on_release: app.change_screen("add_transaction")
 
         MDRaisedButton:
             text: "Transactions"
-            size_hint_x: None
-            width: dp(250)
             pos_hint: {"center_x": 0.5}
+            size_hint: None, None
+            size: dp(260), dp(50)
             on_release: app.change_screen("transactions")
 
         MDRaisedButton:
             text: "Summary"
-            size_hint_x: None
-            width: dp(250)
             pos_hint: {"center_x": 0.5}
+            size_hint: None, None
+            size: dp(260), dp(50)
             on_release: app.change_screen("summary")
 
+        Widget:
 
-# ---------------- SAVINGS ----------------
+        MDLabel:
+            text: "Track your savings goals and progress"
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 0.5
+            size_hint_y: None
+            height: dp(30)
+
+
+# =====================================================
+# SAVINGS SCREEN
+# =====================================================
+
 <SavingsScreen>:
     name: "savings"
 
@@ -81,7 +112,9 @@ ScreenManager:
 
         MDIconButton:
             icon: "arrow-left"
-            pos_hint: {"center_x": 0.1}
+            theme_text_color: "Custom"
+            text_color: 1,1,1,1
+            pos_hint: {"x": 0}
             on_release: app.change_screen("main")
 
         MDLabel:
@@ -91,8 +124,13 @@ ScreenManager:
             theme_text_color: "Custom"
             text_color: 1,1,1,1
 
+        Widget:
 
-# ---------------- ADD GOAL ----------------
+
+# =====================================================
+# ADD GOAL SCREEN
+# =====================================================
+
 <AddGoalScreen>:
     name: "add_goal"
 
@@ -104,7 +142,9 @@ ScreenManager:
 
         MDIconButton:
             icon: "arrow-left"
-            pos_hint: {"center_x": 0.1}
+            theme_text_color: "Custom"
+            text_color: 1,1,1,1
+            pos_hint: {"x": 0}
             on_release: app.change_screen("main")
 
         MDLabel:
@@ -114,8 +154,13 @@ ScreenManager:
             theme_text_color: "Custom"
             text_color: 1,1,1,1
 
+        Widget:
 
-# ---------------- ADD TRANSACTION ----------------
+
+# =====================================================
+# ADD TRANSACTION SCREEN
+# =====================================================
+
 <AddTransactionScreen>:
     name: "add_transaction"
 
@@ -127,7 +172,9 @@ ScreenManager:
 
         MDIconButton:
             icon: "arrow-left"
-            pos_hint: {"center_x": 0.1}
+            theme_text_color: "Custom"
+            text_color: 1,1,1,1
+            pos_hint: {"x": 0}
             on_release: app.change_screen("main")
 
         MDLabel:
@@ -137,8 +184,13 @@ ScreenManager:
             theme_text_color: "Custom"
             text_color: 1,1,1,1
 
+        Widget:
 
-# ---------------- TRANSACTIONS ----------------
+
+# =====================================================
+# TRANSACTIONS SCREEN
+# =====================================================
+
 <TransactionsScreen>:
     name: "transactions"
 
@@ -150,7 +202,9 @@ ScreenManager:
 
         MDIconButton:
             icon: "arrow-left"
-            pos_hint: {"center_x": 0.1}
+            theme_text_color: "Custom"
+            text_color: 1,1,1,1
+            pos_hint: {"x": 0}
             on_release: app.change_screen("main")
 
         MDLabel:
@@ -160,8 +214,13 @@ ScreenManager:
             theme_text_color: "Custom"
             text_color: 1,1,1,1
 
+        Widget:
 
-# ---------------- SUMMARY ----------------
+
+# =====================================================
+# SUMMARY SCREEN
+# =====================================================
+
 <SummaryScreen>:
     name: "summary"
 
@@ -173,7 +232,9 @@ ScreenManager:
 
         MDIconButton:
             icon: "arrow-left"
-            pos_hint: {"center_x": 0.1}
+            theme_text_color: "Custom"
+            text_color: 1,1,1,1
+            pos_hint: {"x": 0}
             on_release: app.change_screen("main")
 
         MDLabel:
@@ -182,19 +243,45 @@ ScreenManager:
             halign: "center"
             theme_text_color: "Custom"
             text_color: 1,1,1,1
+
+        Widget:
 '''
 
-# ---------------- SCREENS ----------------
-class MainMenuScreen(MDScreen): pass
-class SavingsScreen(MDScreen): pass
-class AddGoalScreen(MDScreen): pass
-class AddTransactionScreen(MDScreen): pass
-class TransactionsScreen(MDScreen): pass
-class SummaryScreen(MDScreen): pass
+
+# =====================================================
+# SCREEN CLASSES
+# =====================================================
+
+class MainMenuScreen(MDScreen):
+    pass
 
 
-# ---------------- APP ----------------
+class SavingsScreen(MDScreen):
+    pass
+
+
+class AddGoalScreen(MDScreen):
+    pass
+
+
+class AddTransactionScreen(MDScreen):
+    pass
+
+
+class TransactionsScreen(MDScreen):
+    pass
+
+
+class SummaryScreen(MDScreen):
+    pass
+
+
+# =====================================================
+# MAIN APP
+# =====================================================
+
 class SavingsTrackerApp(MDApp):
+
     def build(self):
         self.theme_cls.theme_style = "Dark"
         self.theme_cls.primary_palette = "Blue"
@@ -205,6 +292,9 @@ class SavingsTrackerApp(MDApp):
         self.root.current = screen_name
 
 
-# ---------------- RUN ----------------
+# =====================================================
+# RUN APP
+# =====================================================
+
 if __name__ == "__main__":
     SavingsTrackerApp().run()
