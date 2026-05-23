@@ -13,7 +13,7 @@ ScreenManager:
 
 
 # =====================================================
-# MAIN MENU SCREEN
+# MAIN MENU
 # =====================================================
 
 <MainMenuScreen>:
@@ -22,68 +22,80 @@ ScreenManager:
     MDBoxLayout:
         orientation: "vertical"
         padding: dp(25)
-        spacing: dp(20)
+        spacing: dp(15)
         md_bg_color: 0.03, 0.07, 0.18, 1
-
-        # ---------------- HEADER ----------------
 
         MDLabel:
             text: "Savings Tracker"
             font_style: "H3"
             bold: True
             halign: "left"
-            valign: "top"
             theme_text_color: "Custom"
             text_color: 1, 1, 1, 1
             size_hint_y: None
-            height: dp(80)
+            height: dp(70)
 
         MDLabel:
             text: "Manage your goals and finances"
             font_style: "Subtitle1"
             halign: "left"
             theme_text_color: "Custom"
-            text_color: 1, 1, 1, 0.7
+            text_color: 1, 1, 1, 0.6
             size_hint_y: None
             height: dp(30)
 
         Widget:
 
-        # ---------------- BUTTONS ----------------
+        # ================= BUTTONS =================
 
         MDRaisedButton:
             text: "Savings"
-            pos_hint: {"center_x": 0.5}
             size_hint: None, None
             size: dp(260), dp(50)
+            pos_hint: {"center_x": 0.5}
+            md_bg_color: 0.2, 0.5, 1, 1
+            background_normal: ""
+            background_down: ""
             on_release: app.change_screen("savings")
 
         MDRaisedButton:
             text: "Add Goal"
-            pos_hint: {"center_x": 0.5}
             size_hint: None, None
             size: dp(260), dp(50)
+            pos_hint: {"center_x": 0.5}
+            md_bg_color: 0.1, 0.7, 0.4, 1
+            background_normal: ""
+            background_down: ""
             on_release: app.change_screen("add_goal")
 
         MDRaisedButton:
             text: "Add Transaction"
-            pos_hint: {"center_x": 0.5}
             size_hint: None, None
             size: dp(260), dp(50)
+            pos_hint: {"center_x": 0.5}
+            md_bg_color: 1, 0.6, 0.2, 1
+            background_normal: ""
+            background_down: ""
             on_release: app.change_screen("add_transaction")
 
         MDRaisedButton:
             text: "Transactions"
-            pos_hint: {"center_x": 0.5}
             size_hint: None, None
             size: dp(260), dp(50)
+            pos_hint: {"center_x": 0.5}
+            md_bg_color: 0.8, 0.3, 0.9, 1
+            background_normal: ""
+            background_down: ""
             on_release: app.change_screen("transactions")
 
         MDRaisedButton:
             text: "Summary"
-            pos_hint: {"center_x": 0.5}
             size_hint: None, None
             size: dp(260), dp(50)
+            pos_hint: {"center_x": 0.5}
+            md_bg_color: 0.9, 0.2, 0.2, 1
+            background_normal: ""
+            background_down: ""
             on_release: app.change_screen("summary")
 
         Widget:
@@ -92,7 +104,7 @@ ScreenManager:
             text: "Track your savings goals and progress"
             halign: "center"
             theme_text_color: "Custom"
-            text_color: 1, 1, 1, 0.5
+            text_color: 1, 1, 1, 0.4
             size_hint_y: None
             height: dp(30)
 
@@ -106,25 +118,17 @@ ScreenManager:
 
     MDBoxLayout:
         orientation: "vertical"
-        padding: dp(20)
-        spacing: dp(15)
         md_bg_color: 0.03, 0.07, 0.18, 1
 
-        MDIconButton:
-            icon: "arrow-left"
-            theme_text_color: "Custom"
-            text_color: 1,1,1,1
-            pos_hint: {"x": 0}
-            on_release: app.change_screen("main")
+        MDTopAppBar:
+            title: "Savings Goals"
+            left_action_items: [["arrow-left", lambda x: app.change_screen("main")]]
 
         MDLabel:
-            text: "Savings Goals"
-            font_style: "H4"
+            text: "Your savings goals will appear here"
             halign: "center"
             theme_text_color: "Custom"
-            text_color: 1,1,1,1
-
-        Widget:
+            text_color: 1, 1, 1, 0.6
 
 
 # =====================================================
@@ -136,25 +140,17 @@ ScreenManager:
 
     MDBoxLayout:
         orientation: "vertical"
-        padding: dp(20)
-        spacing: dp(15)
         md_bg_color: 0.03, 0.07, 0.18, 1
 
-        MDIconButton:
-            icon: "arrow-left"
-            theme_text_color: "Custom"
-            text_color: 1,1,1,1
-            pos_hint: {"x": 0}
-            on_release: app.change_screen("main")
+        MDTopAppBar:
+            title: "Add Goal"
+            left_action_items: [["arrow-left", lambda x: app.change_screen("main")]]
 
         MDLabel:
-            text: "Add Goal"
-            font_style: "H4"
+            text: "Create a new savings goal"
             halign: "center"
             theme_text_color: "Custom"
-            text_color: 1,1,1,1
-
-        Widget:
+            text_color: 1, 1, 1, 0.6
 
 
 # =====================================================
@@ -166,25 +162,17 @@ ScreenManager:
 
     MDBoxLayout:
         orientation: "vertical"
-        padding: dp(20)
-        spacing: dp(15)
         md_bg_color: 0.03, 0.07, 0.18, 1
 
-        MDIconButton:
-            icon: "arrow-left"
-            theme_text_color: "Custom"
-            text_color: 1,1,1,1
-            pos_hint: {"x": 0}
-            on_release: app.change_screen("main")
+        MDTopAppBar:
+            title: "Add Transaction"
+            left_action_items: [["arrow-left", lambda x: app.change_screen("main")]]
 
         MDLabel:
-            text: "Add Transaction"
-            font_style: "H4"
+            text: "Add a new transaction"
             halign: "center"
             theme_text_color: "Custom"
-            text_color: 1,1,1,1
-
-        Widget:
+            text_color: 1, 1, 1, 0.6
 
 
 # =====================================================
@@ -196,25 +184,17 @@ ScreenManager:
 
     MDBoxLayout:
         orientation: "vertical"
-        padding: dp(20)
-        spacing: dp(15)
         md_bg_color: 0.03, 0.07, 0.18, 1
 
-        MDIconButton:
-            icon: "arrow-left"
-            theme_text_color: "Custom"
-            text_color: 1,1,1,1
-            pos_hint: {"x": 0}
-            on_release: app.change_screen("main")
+        MDTopAppBar:
+            title: "Transactions"
+            left_action_items: [["arrow-left", lambda x: app.change_screen("main")]]
 
         MDLabel:
-            text: "Transactions"
-            font_style: "H4"
+            text: "Your transactions will appear here"
             halign: "center"
             theme_text_color: "Custom"
-            text_color: 1,1,1,1
-
-        Widget:
+            text_color: 1, 1, 1, 0.6
 
 
 # =====================================================
@@ -226,25 +206,17 @@ ScreenManager:
 
     MDBoxLayout:
         orientation: "vertical"
-        padding: dp(20)
-        spacing: dp(15)
         md_bg_color: 0.03, 0.07, 0.18, 1
 
-        MDIconButton:
-            icon: "arrow-left"
-            theme_text_color: "Custom"
-            text_color: 1,1,1,1
-            pos_hint: {"x": 0}
-            on_release: app.change_screen("main")
+        MDTopAppBar:
+            title: "Summary"
+            left_action_items: [["arrow-left", lambda x: app.change_screen("main")]]
 
         MDLabel:
-            text: "Summary"
-            font_style: "H4"
+            text: "Summary of your savings"
             halign: "center"
             theme_text_color: "Custom"
-            text_color: 1,1,1,1
-
-        Widget:
+            text_color: 1, 1, 1, 0.6
 '''
 
 
@@ -255,22 +227,17 @@ ScreenManager:
 class MainMenuScreen(MDScreen):
     pass
 
-
 class SavingsScreen(MDScreen):
     pass
-
 
 class AddGoalScreen(MDScreen):
     pass
 
-
 class AddTransactionScreen(MDScreen):
     pass
 
-
 class TransactionsScreen(MDScreen):
     pass
-
 
 class SummaryScreen(MDScreen):
     pass
@@ -285,7 +252,6 @@ class SavingsTrackerApp(MDApp):
     def build(self):
         self.theme_cls.theme_style = "Dark"
         self.theme_cls.primary_palette = "Blue"
-
         return Builder.load_string(KV)
 
     def change_screen(self, screen_name):
